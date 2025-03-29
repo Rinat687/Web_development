@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}О нашей компании{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-12">
+        <h1>О нашей компании</h1>
+        <p class="lead">Мы - команда профессионалов, работающая с 2010 года.</p>
+        
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Наша миссия</h3>
+                <p>Мы стремимся предоставлять лучшие решения для наших клиентов, используя современные технологии и инновационные подходы.</p>
+            </div>
+            <div class="col-md-6">
+                <h3>Наши ценности</h3>
+                <ul class="list-group">
+                    <li class="list-group-item">Качество</li>
+                    <li class="list-group-item">Надежность</li>
+                    <li class="list-group-item">Инновации</li>
+                    <li class="list-group-item">Клиентоориентированность</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-4">
+            <h3>Наша команда</h3>
+            <div class="row">
+                {% for member in team %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ member.name }}</h5>
+                            <p class="card-text">{{ member.position }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-8">
+        <h1>Добро пожаловать на наш сайт!</h1>
+        <p class="lead">Это главная страница нашего веб-сайта.</p>
+        <p>Здесь вы можете найти много полезной информации и интересных материалов.</p>
+        
+        <h3 class="mt-4">Последние новости</h3>
+        {% for item in news %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ item.date }}</h6>
+                <p class="card-text">{{ item.text }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Быстрые ссылки</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a href="{{ url_for('about') }}">О нас</a></li>
+                    <li class="list-group-item"><a href="#">Контакты</a></li>
+                    <li class="list-group-item"><a href="#">Услуги</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class="card-title">Статистика</h5>
+                <p class="card-text">Текущий год: {{ current_year }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
